@@ -13,9 +13,14 @@ RUN source activate rapids && conda install -y -c conda-forge ipyvolume
 RUN source activate rapids && jupyter labextension install ipyvolume
 RUN source activate rapids && jupyter labextension install jupyter-threejs
 
+
+
+#RUN source activate rapids && pip install jupyterlab-nvdashboard
+#RUN source activate rapids && jupyter labextension install jupyterlab-nvdashboard
+
 RUN source activate rapids && conda install -c conda-forge python-graphviz 
 
-RUN apt -y --fix-missing install unzip git vim htop
+#RUN apt -y --fix-missing install unzip git vim htop
 
 # RUN git clone https://github.com/miroenev/rapids
 
@@ -25,6 +30,10 @@ RUN source activate rapids && conda install -y -c pytorch pytorch
 RUN source activate rapids && conda install -y cupy
 RUN source activate rapids && conda install -y -c rapidsai -c nvidia cuml=0.9
 RUN source activate rapids && conda install -y -c rapidsai/label/xgboost xgboost=0.90.rapidsdev1
+
+RUN pip install jupyter-server-proxy
+RUN pip install bokeh
+RUN pip install pynvml
 
 EXPOSE 8888
 
